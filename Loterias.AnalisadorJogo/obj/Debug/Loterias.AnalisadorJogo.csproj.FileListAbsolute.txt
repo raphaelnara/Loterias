@@ -1,0 +1,11 @@
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\bin\Debug\Loterias.AnalisadorJogo.exe.config
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\bin\Debug\Loterias.AnalisadorJogo.exe
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\bin\Debug\Loterias.AnalisadorJogo.pdb
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.csproj.AssemblyReference.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.csproj.SuggestedBindingRedirects.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.FormPrincipal.resources
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.Properties.Resources.resources
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.csproj.GenerateResource.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.csproj.CoreCompileInputs.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.exe
+C:\Users\Casa\source\repos\Loterias\Loterias.AnalisadorJogo\obj\Debug\Loterias.AnalisadorJogo.pdb

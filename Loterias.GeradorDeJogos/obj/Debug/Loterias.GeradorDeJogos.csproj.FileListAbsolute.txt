@@ -1,0 +1,7 @@
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\bin\Debug\Loterias.GeradorDeJogos.exe
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\bin\Debug\Loterias.GeradorDeJogos.pdb
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\obj\Debug\Loterias.GeradorDeJogos.csproj.AssemblyReference.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\obj\Debug\Loterias.GeradorDeJogos.csproj.SuggestedBindingRedirects.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\obj\Debug\Loterias.GeradorDeJogos.csproj.CoreCompileInputs.cache
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\obj\Debug\Loterias.GeradorDeJogos.exe
+C:\Users\Casa\source\repos\Loterias\Loterias.GeradorDeJogos\obj\Debug\Loterias.GeradorDeJogos.pdb
