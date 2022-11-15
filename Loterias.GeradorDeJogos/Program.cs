@@ -28,14 +28,48 @@ namespace Loterias.GeradorDeJogos
                         resposta = Console.ReadLine();
                     } while (!resposta.Equals("1") && !resposta.Equals("2"));
 
+                    // Modo de inserção de números
+                    string excluir;
+                    do
+                    {
+                        Console.WriteLine("Deseja excluir jogos já sorteador? (S/N)");
+                        excluir = Console.ReadLine();
+                    } while (!excluir.Equals("S", StringComparison.InvariantCultureIgnoreCase) && !excluir.Equals("N", StringComparison.InvariantCultureIgnoreCase));
+                    var jogosSorteados = new List<string>();
+                    if (excluir.Equals("S", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        string arquivoHistorico;
+                        while (true)
+                        {
+                            Console.WriteLine($"Informe o arquivo CSV com os números do histórico de jogos:");
+                            arquivoHistorico = Console.ReadLine();
+                            if (File.Exists(arquivoHistorico))
+                            {
+                                var linhas = File.ReadAllLines(arquivoHistorico);
+                                foreach (var linha in linhas)
+                                {
+                                    var numeros = linha
+                                        .Split(';')
+                                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                                        .Select(s => Convert.ToInt32(s.Trim()))
+                                        .ToArray();
+                                    jogosSorteados.Add(string.Join(";", numeros.OrderBy(n => n)));
+                                }
+                                break;
+                            }
+                            else
+                                Console.WriteLine("Caminho de arquivo inválido!");
+                        }
+                    }
+
                     // Execução da técnica
                     switch (resposta.Trim())
                     {
                         case "1":
-                            Desdobramento(pastaResultado);
+                            Desdobramento(pastaResultado, jogosSorteados);
                             break;
                         case "2":
-                            Fechamento(pastaResultado);
+                            Fechamento(pastaResultado, jogosSorteados);
                             break;
                     }
                 }
@@ -45,7 +79,7 @@ namespace Loterias.GeradorDeJogos
                 }
             }
         }
-        private static void Desdobramento(string pastaResultado, string[] historicoSorteados = null)
+        private static void Desdobramento(string pastaResultado, IEnumerable<string> historicoSorteados = null)
         {
             // Lê tamanho do conjunto 
             var tamanhoConjunto = LerTamanhoConjunto();
@@ -66,9 +100,9 @@ namespace Loterias.GeradorDeJogos
             {
                 foreach (var combinacao in GerarCombinacoes(numeros, tamanhoSubconjunto))
                 {
-                    // TODO: Excluir já sorteados
-
-                    var linha = string.Join(";", combinacao);
+                    var linha = string.Join(";", combinacao.OrderBy(n => n));
+                    if (historicoSorteados != null && historicoSorteados.Contains(linha)) 
+                        continue;
                     writer.WriteLine(linha);
                 }
             }
@@ -76,7 +110,7 @@ namespace Loterias.GeradorDeJogos
             Process.Start(arquivoSaida);
         }
 
-        private static void Fechamento(string pastaResultado, string[] historicoSorteados = null)
+        private static void Fechamento(string pastaResultado, IEnumerable<string> historicoSorteados = null)
         {
             bool invalido;
 
@@ -119,9 +153,10 @@ namespace Loterias.GeradorDeJogos
             {
                 foreach (var combinacao in GerarCombinacoes(numerosDesdobrados, tamanhoSubconjunto))
                 {
-                    // TODO: Excluir já sorteados
-
-                    writer.WriteLine(string.Join(";", numerosFixos.Concat(combinacao).OrderBy(n => n)));
+                    var linha = string.Join(";", numerosFixos.Concat(combinacao).OrderBy(n => n));
+                    if (historicoSorteados != null && historicoSorteados.Contains(linha)) 
+                        continue;
+                    writer.WriteLine(linha);
                 }
             }
             Console.WriteLine($"Arquivo CSV gerado em {arquivoSaida}");
